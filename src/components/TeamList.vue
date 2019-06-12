@@ -1,6 +1,6 @@
 <template>
   <div id="team-list">
-    <TeamTab v-for="comp in competitors" v-bind:teaminf="comp.competitor"></TeamTab>
+    <TeamTab v-for="(comp, index) in teams.competitors" :teaminf="comp.competitor" :key="index"></TeamTab>
   </div>
 </template>
 
@@ -12,11 +12,26 @@ export default {
     TeamTab
   },
   data () {
-      
+      return {
+        teams: {competitors:[]}
+      }
+  },
+  created () {
+    this.axios.get('https://api.overwatchleague.cn/teams')
+    .then(response => (this.teams = response.data))
+    .catch(function (error){
+      console.log(error);
+    });
   }
+  
 }
 </script>
 
-<style>
-
+<style scoped>
+  .team-list {
+    width: 100%;
+    height: 100%;
+    margin: 10px;
+    background-color: cornflowerblue;
+  }
 </style>
