@@ -1,15 +1,18 @@
 <template>
   <div id="app">
-    <TeamList></TeamList>
+    <!-- <TeamList></TeamList> -->
+    <TeamDetail teamid='7692'></TeamDetail>
   </div>
 </template>
 
 <script>
 import TeamList from './components/TeamList'
+import TeamDetail from './components/TeamDetail'
 export default {
   name: 'app',
   components: {
-    TeamList
+    TeamList,
+    TeamDetail
   }
 }
 </script>
