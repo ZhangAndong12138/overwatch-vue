@@ -2,9 +2,10 @@
   <div id="team-detail"><!-- :style="detailStyle" -->
     <img :src="teamdata.logo" />
     <h1 v-html="teamdata.name"></h1>
-    <div>
+    <div class="player-tabs">
         <PlayerTab v-for="player in teamdata.players" :key="player.id" :playerinf="player"></PlayerTab>
     </div>
+    <!-- <button @click="log">console.log</button> -->
   </div>
 </template>
 
@@ -22,15 +23,19 @@ export default {
           secondaryColor: 'ffffff',
           name: ''
       },
-    //   detailStyle:{
-    //     background : '#'+this.teamdata.secondaryColor
-    //   }
+      teamid : this.$route.params.teamid
     }
   },
   props: {
-    teamid: String
+    //teamid: String
+  },
+  methods: {
+    log : function (){
+      console.log(this.teamdata);
+    }
   },
   mounted () {
+    console.log(this.$route.params.teamid);
     this.axios.get('https://api.overwatchleague.cn/teams/' + this.teamid)
     .then(response => (this.teamdata = response.data))//
     .catch(function (error){

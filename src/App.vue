@@ -1,18 +1,25 @@
 <template>
   <div id="app">
-    <!-- <TeamList></TeamList> -->
-    <TeamDetail teamid='7692'></TeamDetail>
+    <img src="./assets/logo.png">
+    <div>
+      <p>
+        If Element is successfully added to this project, you'll see an
+        <code v-text="'<el-button>'"></code>
+        below
+      </p>
+      <el-button>el-button</el-button>
+    </div>
+    <HelloWorld msg="Welcome to Your Vue.js App"/>
   </div>
 </template>
 
 <script>
-import TeamList from './components/TeamList'
-import TeamDetail from './components/TeamDetail'
+import HelloWorld from './components/HelloWorld.vue'
+
 export default {
   name: 'app',
   components: {
-    TeamList,
-    TeamDetail
+    HelloWorld
   }
 }
 </script>

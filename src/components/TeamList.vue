@@ -1,6 +1,13 @@
 <template>
   <div id="team-list">
-    <TeamTab v-for="(comp, index) in teams.competitors" :teaminf="comp.competitor" :key="index"></TeamTab>
+    <div class="team-tab">
+      <router-link v-for="comp in teams.competitors" :to="'/teamdetail/' + comp.competitor.id" :key="comp.competitor.id">
+        <TeamTab  :teaminf="comp.competitor" ></TeamTab>
+      </router-link>
+    </div>
+    <div class="team-detail">
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 
@@ -17,13 +24,12 @@ export default {
       }
   },
   created () {
-    this.axios.get('https://api.overwatchleague.cn/teams')
+    this.axios.get('https://api.overwatchleague.cn/teams?locale=zh_CN')
     .then(response => (this.teams = response.data))
     .catch(function (error){
       console.log(error);
     });
   }
-  
 }
 </script>
 
@@ -33,5 +39,16 @@ export default {
     height: 100%;
     margin: 10px;
     background-color: cornflowerblue;
+    float: left;
+  }
+
+  .team-tab {
+    width: 20%;
+    height: 100%;
+    float: left;
+  }
+  .team-detail {
+    float: left;
+    width: 75%
   }
 </style>

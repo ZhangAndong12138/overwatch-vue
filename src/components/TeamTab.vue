@@ -1,7 +1,7 @@
 <template>
   <div id="team-tab" :style="tabStyle">
     <img :src="teaminf.logo" />
-    <h3 v-html="teaminf.name"></h3>
+    <span v-html="teaminf.name"></span>
   </div>
 </template>
 
@@ -24,14 +24,23 @@ export default {
 
 <style scoped>
 img {
-  width: 75px;
-  height: 75px;
+  width: 25px;
+  height: 25px;
+  float: left;
+}
+
+span {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 18px;
+  float: left;
 }
 
 div {
   float: left;
-  margin: 15px;
-  width: 30%;
+  margin: 7px;
+  width: 100%;
 }
 
 div:hover {

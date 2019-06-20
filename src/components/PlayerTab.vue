@@ -3,6 +3,7 @@
     <img :src="playerinf.headshot" />
     <h3 v-html="'NO.' + playerinf.attributes.player_number + ' '+playerinf.name"></h3>
     <h4 v-html="playerinf.attributes.role"></h4>
+    <span v-for="(hero, index) in playerinf.attributes.heroes" :key="index" v-html="hero.name + ' '"></span>
   </div>
 </template>
 
