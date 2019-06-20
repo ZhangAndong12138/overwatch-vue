@@ -5,9 +5,9 @@
         <TeamTab  :teaminf="comp.competitor" ></TeamTab>
       </router-link>
     </div>
-    <div class="team-detail">
+    <!-- <div class="team-detail">
       <router-view></router-view>
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -43,12 +43,9 @@ export default {
   }
 
   .team-tab {
-    width: 20%;
+    width: 100%;
     height: 100%;
     float: left;
   }
-  .team-detail {
-    float: left;
-    width: 75%
-  }
+
 </style>
