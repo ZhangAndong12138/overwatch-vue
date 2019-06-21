@@ -1,6 +1,6 @@
 <template>
   <div id="team-tab" :style="tabStyle">
-      <img :src="teaminf.logo" center=true/>
+      <img :src="teaminf.logo.main.svg" center=true/>
       <br><br>
       <span v-html="teaminf.name"></span>  
   </div>
@@ -13,7 +13,7 @@ export default {
   data () {
     return {
       tabStyle:{
-        color : '#'+this.teaminf.secondaryColor
+        color : this.teaminf.colors.secondary.color
       }
     }
   },

@@ -1,13 +1,10 @@
 <template>
-  <div id="player-tab">
-    <img :src="playerinf.headshot">
-    <h3 v-html="'NO.' + playerinf.attributes.player_number + ' '+playerinf.name"></h3>
-    <h4 v-html="playerinf.attributes.role"></h4>
-    <span
-      v-for="(hero, index) in playerinf.attributes.heroes"
-      :key="index"
-      v-html="hero.name + ' '"
-    ></span>
+  <div id="player-tab" class="player-tab">
+    <div class="blocked">
+      <el-image :src="playerinf.headshot"></el-image>
+    </div>
+    <h3 v-html="playerinf.name"></h3><!-- '#' + playerinf.number + ' '+ -->
+    <!-- <h4 v-html="playerinf.role"></h4> -->
   </div>
 </template>
 
@@ -33,15 +30,17 @@ img {
   height: 75px;
 }
 
-div {
+.player-tab {
+  text-align: center;
   float: left;
   margin: 15px;
   width: 22%;
-  background-color: #ffffff;
-}
-
-div:hover {
-  transform: scale(1.1);
+  background-color: #eee;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 0 6px rgba(0, 0, 0, 0.04);
 }
+
+.player-tab:hover {
+  transform: scale(1.1);
+}
+
 </style>
