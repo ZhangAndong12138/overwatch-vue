@@ -25,7 +25,10 @@
       </el-row>
     </div>
     <div class="player-tabs">
-      <PlayerTab v-for="player in teamdata.players" :key="player.id" :playerinf="player"></PlayerTab>
+      <router-link v-for="player in teamdata.players" :key="player.id" :to="'/playerdetail/' + player.id">
+        <PlayerTab :playerinf="player" :fontColor="teamdata.colors.primary.color"></PlayerTab>
+      </router-link>
+      
     </div>
     <button @click="log">console.log</button>
   </div>
@@ -36,7 +39,7 @@ import PlayerTab from "./PlayerTab";
 import { watch } from "fs";
 
 export default {
-  name: "TeamTab",
+  name: "TeamDetail",
   components: {
     PlayerTab
   },
@@ -56,13 +59,14 @@ export default {
             svg: "",
             png: ""
           }
+        },
+        records:{
+          matchWin:"",
+          matchLoss:""
         }
       },
       teamid: this.$route.params.teamid
     };
-  },
-  props: {
-    //teamid: String
   },
   methods: {
     log: function() {
@@ -87,6 +91,7 @@ export default {
 
 <style scoped>
 .team-header {
+  margin-bottom: 30px;
   padding: 20px;
   border-radius: 5px;
 }

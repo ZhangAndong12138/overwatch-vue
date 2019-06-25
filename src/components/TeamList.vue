@@ -1,18 +1,8 @@
 <template>
   <div id="team-list">
-    <el-button @click="toShowList()">back</el-button>
-    <div class="team-tab" v-show="!showDetail">
-      <div
-        v-for="team in teams"
-        :key="team.id"
-        @click="toShowDetail(team.id)"
-      >
+      <router-link v-for="team in teams" :key="team.id" :to="'/teamdetail/' + team.id">
         <TeamTab :teaminf="team"></TeamTab>
-      </div>
-    </div>
-    <div class="team-detail" :v-show="showDetail">
-      <router-view></router-view>
-    </div>
+      </router-link>
   </div>
 </template>
 
@@ -30,14 +20,8 @@ export default {
     };
   },
   methods: {
-    toShowDetail: function(id) {
-      this.$router.push('/teamdetail/' + id);
-      this.showDetail = true;
-    },
-
     toShowList: function(){
       this.$router.go(-1);
-      this.showDetail = false;
     }
   },
   created() {
@@ -57,12 +41,6 @@ export default {
   height: 100%;
   margin: 10px;
   background-color: cornflowerblue;
-  float: left;
-}
-
-.team-tab {
-  width: 100%;
-  height: 100%;
   float: left;
 }
 </style>

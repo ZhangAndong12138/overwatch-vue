@@ -10,7 +10,7 @@
             </el-row>
         </el-header>
         <el-main>
-          <TeamList></TeamList>
+          <router-view></router-view>
         </el-main>
       </el-container>
     </el-container>

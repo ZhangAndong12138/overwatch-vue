@@ -3,8 +3,7 @@
     <div class="blocked">
       <el-image :src="playerinf.headshot"></el-image>
     </div>
-    <h3 v-html="playerinf.name"></h3><!-- '#' + playerinf.number + ' '+ -->
-    <!-- <h4 v-html="playerinf.role"></h4> -->
+    <h2 v-html="roleAndName(playerinf.role, playerinf.name)" :style="{color:fontColor}"></h2>
   </div>
 </template>
 
@@ -18,8 +17,25 @@ export default {
       //   }
     };
   },
+  methods: {
+    roleAndName(role,name){
+      let icon = "";
+      if(role === "offense"){
+        icon = "el-icon-aim";
+      }else if(role === "support"){
+        icon = "el-icon-first-aid-kit";
+      }else if(role === "tank"){
+        icon = "el-icon-c-scale-to-original";
+      }else{
+        icon = "el-icon-copy-document";
+      }
+      return "<i class=" + icon + " title=" + role + "></i>&nbsp;" + name;
+    }
+    
+  },
   props: {
-    playerinf: Object
+    playerinf: Object,
+    fontColor: String
   }
 };
 </script>
@@ -42,5 +58,9 @@ img {
 .player-tab:hover {
   transform: scale(1.1);
 }
+
+/* h2{
+  color: #000000;
+} */
 
 </style>
