@@ -24,7 +24,7 @@ export default {
       this.$router.go(-1);
     }
   },
-  created() {
+  mounted() {
     this.axios
       .get("https://api.overwatchleague.cn/v2/teams?locale=zh_CN")
       .then(response => (this.teams = response.data.data))

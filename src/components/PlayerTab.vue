@@ -10,13 +10,6 @@
 <script>
 export default {
   name: "PlayerTab",
-  data() {
-    return {
-      //   tabStyle:{
-      //     color : '#'+this.playerinf.secondaryColor
-      //   }
-    };
-  },
   methods: {
     roleAndName(role,name){
       let icon = "";
@@ -41,10 +34,6 @@ export default {
 </script>
 
 <style scoped>
-img {
-  width: 75px;
-  height: 75px;
-}
 
 .player-tab {
   text-align: center;
@@ -59,8 +48,6 @@ img {
   transform: scale(1.1);
 }
 
-/* h2{
-  color: #000000;
-} */
+
 
 </style>

@@ -5,7 +5,9 @@
         <el-header>
             <el-row>
               <el-col :span="6">
-                <h1>守望先锋联赛</h1>
+                <router-link :to="'/'">
+                  <h1>守望先锋联赛</h1>
+                </router-link>
               </el-col>
             </el-row>
         </el-header>
@@ -36,6 +38,14 @@ export default {
 }
 
 .el-container {
+  color: #333;
+}
+
+a {
+  text-decoration:none;
+}
+
+h1 {
   color: #333;
 }
 </style>

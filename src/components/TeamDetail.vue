@@ -1,7 +1,7 @@
 <template>
-  <div id="team-detail">
-    <div :style="{background:teamdata.colors.primary.color}" class="team-header">
-      <el-row :style="{color:teamdata.colors.secondary.color}">
+  <div id="team-detail" v-if="loaded">
+    <div :style="{background:teamdata.colors.primary.color}" class="team-header" >
+      <el-row :style="{color:teamdata.colors.tertiary.color}">
         <el-col :span="3">
           &nbsp;
         </el-col>
@@ -45,27 +45,9 @@ export default {
   },
   data() {
     return {
-      teamdata: {
-        colors: {
-          primary: {
-            color: "#ffffff"
-          },
-          secondary: {
-            color: "#000000"
-          }
-        },
-        logo: {
-          mainName: {
-            svg: "",
-            png: ""
-          }
-        },
-        records:{
-          matchWin:"",
-          matchLoss:""
-        }
-      },
-      teamid: this.$route.params.teamid
+      teamdata: {},
+      teamid: this.$route.params.teamid,
+      loaded: false
     };
   },
   methods: {
@@ -81,7 +63,10 @@ export default {
           this.teamid +
           "?expand=article,schedule&locale=zh_CN"
       )
-      .then(response => (this.teamdata = response.data.data)) //
+      .then((response) => {
+        this.teamdata = response.data.data;
+        this.loaded = true;
+      }) 
       .catch(function(error) {
         console.log(error);
       });
