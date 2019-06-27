@@ -7,7 +7,7 @@ import echarts from 'echarts'
 import 'element-ui/lib/theme-chalk/index.css'
 import './plugins/element.js'
 
-
+//contributions test
 Vue.config.productionTip = false
 Vue.prototype.axios = axios
 Vue.prototype.echarts = echarts 
